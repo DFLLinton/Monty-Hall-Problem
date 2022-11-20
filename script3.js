@@ -1,9 +1,10 @@
-let s = [0,0];
-var t = [0,0];
+let s = [0,0]; //This will be for no. of wins
+var t = [0,0]; //This will be for no. of games
 
 function simulate(x)
 {
 document.querySelectorAll('.box').forEach(box => {
+  // Set default closed doors
   box.style.border = "none";
   box.style.backgroundColor = "gray";
   box.src = "door.jpg";
@@ -21,15 +22,15 @@ document.querySelectorAll('.box').forEach(box => {
 		alt = corr;
 	}
 	
-  if (x==1){
+  if (x==1){ // if it is a 'switch' game let the final selection be the switched-to door 
     var final = alt;
-  } else {
+  } else { // if it is a 'stick' game let the final selection be the first guessed door
     var final = guess;
   };
   
-  if(final == corr){
+  if(final == corr){ //If the final choice is correct
     var outcome = 1;
-  } else{
+  } else{ //If the final choice is incorrect
     var outcome = 0;
   }
   
