@@ -6,17 +6,18 @@ function simulate(x)
 document.querySelectorAll('.box').forEach(box => {
   box.style.border = "none";
   box.style.backgroundColor = "gray";
+  box.src = "door.jpg";
 })
   
 	var corr = Math.floor(Math.random()*3)+1; // pick correct answer
 	var guess = Math.floor(Math.random()*3)+1; // make a random guess
 	var alt; // define the switch option
 
-	if (corr == guess) { 
+	if (corr == guess) { //if initial guess is correct select a random empty door to be the switch door
       var n = Math.floor(Math.random() * (3-1) + 1);
-    if (n >= corr) n++;
+    if (n = corr) n++;
     var alt = n; 
-	} else { // if incorrect, present correct answer as alternative
+	} else { // if initial guess is incorrect, select correct door to be the switch door
 		alt = corr;
 	}
 	
@@ -46,5 +47,8 @@ document.querySelectorAll('.box').forEach(box => {
   s[x]+= outcome; //Counts number of wins
   document.getElementsByClassName("ans")[x].innerHTML = s[x]+"/"+t[x]+" ("+Math.floor(s[x]/t[x]*100)+"%)";
   document.getElementsByClassName("box")[corr-1].style.backgroundColor = (outcome==1) ? "green" : "red";
+    document.getElementsByClassName("box")[corr-1].src = (outcome==1) ? "acrown.jpg" : "door.jpg";
   document.getElementsByClassName("box")[final-1].style.border = "solid yellow 5px";
 }
+
+
