@@ -16,8 +16,11 @@ document.querySelectorAll('.box').forEach(box => {
 
 	if (corr == guess) { //if initial guess is correct select a random empty door to be the switch door
       var n = Math.floor(Math.random() * (3-1) + 1);
-    if (n = corr) n++;
-    var alt = n; 
+    if (n = corr) n--;
+    if (n == 0){
+      var alt= corr+1;
+    }else{
+    var alt = n;} 
 	} else { // if initial guess is incorrect, select correct door to be the switch door
 		alt = corr;
 	}
