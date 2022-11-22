@@ -15,11 +15,11 @@ document.querySelectorAll('.box').forEach(box => {
 	var alt; // define the switch option
 
 	if (corr == guess) { //if initial guess is correct select a random empty door to be the switch door
-      var n = Math.floor(Math.random() * (3-1) + 1);
-    if (n = corr) n--;
-    if (n == 0){
+      var n = Math.floor(Math.random() * (3-1) + 1); //select a random door
+    if (n = corr) n--; //if the new door selected is correct then it hasn't moved so choose other door
+    if (n == 0){ //if choosing lower door doesn't work choose higher door
       var alt= corr+1;
-    }else{
+    }else{ //otherwise let the alt door equal the random selected at line 18
     var alt = n;} 
 	} else { // if initial guess is incorrect, select correct door to be the switch door
 		alt = corr;
